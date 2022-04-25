@@ -9,7 +9,3 @@ function getEmployeeByName(employeeName) {
 }
 
 module.exports = getEmployeeByName;
-
-const array = [{1: 1}];
-
-console.log(array[0]);
