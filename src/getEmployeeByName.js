@@ -1,7 +1,7 @@
 const data = require('../data/zoo_data');
 
 function getEmployeeByName(Name) {
-  const array = data.employees.filter((emplo) => emplo.firstName == Name || emplo.lastName == Name);
+  const array = data.employees.filter((empl) => empl.firstName === Name || empl.lastName === Name);
   if (array[0] === undefined) {
     return {};
   }
