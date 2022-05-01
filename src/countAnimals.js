@@ -7,26 +7,26 @@ const semNada = data.species.forEach((specie1) => {
   objFinal = {
     ...objFinal,
     [nome]: quantia,
-  }
+  };
   return objFinal;
 });
 
 function countAnimals(animal) {
   if (animal === undefined) {
     return objFinal;
-  } else if (animal.specie !== undefined && animal.sex !== undefined) {
+  } if (animal.specie !== undefined && animal.sex !== undefined) {
     const { specie, sex } = animal;
     if (sex === 'female') {
-      const oAnimal = data.species.find((animal) => animal.name === specie);
-      const femeas = oAnimal.residents.filter((animal) => animal.sex === 'female');
+      const oAnimal = data.species.find((aanimal) => aanimal.name === specie);
+      const femeas = oAnimal.residents.filter((aanimal) => aanimal.sex === 'female');
       return femeas.length;
-    } else if (sex === 'male') {
-      const oAnimal = data.species.find((animal) => animal.name === specie);
-      const machos = oAnimal.residents.filter((animal) => animal.sex === 'male');
+    } if (sex === 'male') {
+      const oAnimal = data.species.find((aanimal) => aanimal.name === specie);
+      const machos = oAnimal.residents.filter((aanimal) => aanimal.sex === 'male');
       return machos.length;
     }
   } const { specie } = animal;
-  const oAnimal = data.species.find((animal) => animal.name === specie);
+  const oAnimal = data.species.find((aanimal) => aanimal.name === specie);
   return oAnimal.residents.length;
 }
 
