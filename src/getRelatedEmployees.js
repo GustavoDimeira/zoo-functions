@@ -10,8 +10,8 @@ function getRelatedEmployees(managerId) {
     const empregados = [];
     objEmpregados.forEach((empre) => empregados.push(`${empre.firstName} ${empre.lastName}`));
     return empregados;
-  } 
-    throw new Error('O id inserido não é de uma pessoa colaboradora gerente!');
+  }
+  throw new Error('O id inserido não é de uma pessoa colaboradora gerente!');
 }
 
 module.exports = { isManager, getRelatedEmployees };
