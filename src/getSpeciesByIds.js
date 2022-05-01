@@ -7,8 +7,7 @@ function getSpeciesByIds(...ids) {
     const animais = data.species;
     const animalCerto = animais.find((animal) => animal.id === id);
     aanimais.push(animalCerto);
-  }
-  );
+  });
   return aanimais;
 }
 
