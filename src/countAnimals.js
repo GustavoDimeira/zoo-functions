@@ -1,16 +1,18 @@
 const data = require('../data/zoo_data');
 
+let objFinal;
+const semNada = data.species.forEach((specie1) => {
+  const nome = specie1.name;
+  const quantia = specie1.residents.length;
+  objFinal = {
+    ...objFinal,
+    [nome]: quantia,
+  }
+  return objFinal;
+});
+
 function countAnimals(animal) {
   if (animal === undefined) {
-    let objFinal;
-    data.species.forEach((specie1) => {
-      const nome = specie1.name;
-      const quantia = specie1.residents.length;
-      objFinal = {
-        ...objFinal,
-        [nome]: quantia,
-      }
-    })
     return objFinal;
   } else if (animal.specie !== undefined && animal.sex !== undefined) {
     const { specie, sex } = animal;
@@ -24,8 +26,8 @@ function countAnimals(animal) {
       return machos.length;
     }
   } const { specie } = animal;
-    const oAnimal = data.species.find((animal) => animal.name === specie);
-    return oAnimal.residents.length;   
+  const oAnimal = data.species.find((animal) => animal.name === specie);
+  return oAnimal.residents.length;
 }
 
 module.exports = countAnimals;
