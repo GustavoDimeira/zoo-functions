@@ -6,12 +6,12 @@ function countEntrants(entrants) {
   let senior = 0;
   entrants.forEach((pessoa) => {
     if (pessoa.age < 18) {
-      child += 1
+      child += 1;
     } else if (pessoa.age < 50) {
-      adult += 1
-     } else {
-       senior += 1;
-     }
+      adult += 1;
+    } else {
+      senior += 1;
+    }
   });
   const entradas = { child, adult, senior };
   return entradas;
