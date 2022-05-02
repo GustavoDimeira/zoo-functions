@@ -18,7 +18,7 @@ function countAnimals(animal) {
   if (sex === 'female') {
     const femeas = oAnimal.residents.filter((aanimal) => aanimal.sex === 'female');
     return femeas.length;
-  } else if (sex === 'male') {
+  } if (sex === 'male') {
     const machos = oAnimal.residents.filter((aanimal) => aanimal.sex === 'male');
     return machos.length;
   }
