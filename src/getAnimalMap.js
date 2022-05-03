@@ -1,5 +1,6 @@
 const data = require('../data/zoo_data');
 
+let a;
 const NE = [];
 const NW = [];
 const SE = [];
@@ -17,11 +18,12 @@ const semNada = () => {
     }
   });
 };
+const colocarSexCorreto = (resid, sex, nomes) => {
+  resid.sex === sex ? nomes.push(resid.name) : a += 1;
+}
 const addNomes = (sex, nomes, esse) => {
   if (sex !== undefined && sex !== false) {
-    esse.residents.forEach((resid) => {
-      resid.sex === sex ? nomes.push(resid.name) : nomes = nomes
-    });
+    esse.residents.forEach((resid) => colocarSexCorreto(resid, sex, nomes));
   } else {
     esse.residents.forEach((resid) => {
       nomes.push(resid.name);
@@ -31,11 +33,10 @@ const addNomes = (sex, nomes, esse) => {
 const comIncludNames = ((posicao, sex, sorted) => {
   let XX = [];
   posicao.forEach((especie) => {
-    esse = data.species.find((animalZoo) => animalZoo.name === especie);
-    const nomes = []
+    let esse = data.species.find((animalZoo) => animalZoo.name === especie);
+    const nomes = [];
     addNomes(sex, nomes, esse);
-    let a;
-    sorted === 1 ? nomes.sort() : a = 1;
+    sorted === 1 ? nomes.sort() : a += 1;
     console.log(a);
     XX = [
       ...XX,
@@ -71,6 +72,6 @@ function getAnimalMap(options) {
   if (options === undefined || options.includeNames === undefined) {
     return { NE: NE, NW: NW, SE: SE, SW: SW }
   } return comIncludNamesTrue(options);
-};
+}
 
 module.exports = getAnimalMap;
