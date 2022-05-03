@@ -16,22 +16,17 @@ const semNada = () => {
       SW.push(sp.name);
     }
   });
-}
+};
 const addNomes = (sex, nomes) => {
   if (sex !== undefined && sex !== false) {
-    esse.residents.forEach((resident) => resident.sex === sex ? nomes.push(resident.name) : nomes = nomes);
+    esse.residents.forEach((resid) => {
+      resid.sex === sex ? nomes.push(resid.name) : nomes = nomes
+    });
   } else {
-    esse.residents.forEach((resident) => {
-      nomes.push(resident.name);
+    esse.residents.forEach((resid) => {
+      nomes.push(resid.name);
     });
   }
-}
-const chamar4Vezes = (sex, sorted) => {
-  const NE2 = comIncludNames(NE, sex, sorted);
-  const NW2 = comIncludNames(NW, sex, sorted);
-  const SE2 = comIncludNames(SE, sex, sorted);
-  const SW2 = comIncludNames(SW, sex, sorted);
-  return { NE: NE2, SE: SE2, SW: SW2, NW: NW2 };
 }
 const comIncludNames = ((posicao, sex, sorted) => {
   let XX = [];
@@ -39,7 +34,8 @@ const comIncludNames = ((posicao, sex, sorted) => {
     esse = data.species.find((animalZoo) => animalZoo.name === especie);
     let nomes = []
     addNomes(sex, nomes);
-    sorted === 1 ? nomes.sort() : nomes = nomes;
+    let a;
+    sorted === 1 ? nomes.sort() : a = 1;
     XX = [
       ...XX,
       { [especie]: nomes }
@@ -47,21 +43,27 @@ const comIncludNames = ((posicao, sex, sorted) => {
   });
   return XX;
 });
+const chamar4Vezes = (sex, sorted) => {
+  const NE2 = comIncludNames(NE, sex, sorted);
+  const NW2 = comIncludNames(NW, sex, sorted);
+  const SE2 = comIncludNames(SE, sex, sorted);
+  const SW2 = comIncludNames(SW, sex, sorted);
+  return { NE: NE2, SE: SE2, SW: SW2, NW: NW2 };
+}
 const comIncludNamesTrue = (options) => {
   if (options.includeNames === true && options.sex === undefined) {
     if (options.sorted === true) {
       return chamar4Vezes(false, 1);
     } return chamar4Vezes();
-  }
-  if (options.sex === 'female') {
+  } if (options.sex === 'female') {
     if (options.sorted === undefined) {
       return chamar4Vezes('female');
-    } return chamar4Vezes('female', 1)
+    } return chamar4Vezes('female', 1);
   } if (options.sex === 'male') {
     if (options.sorted === undefined) {
       return chamar4Vezes('male');
-    } return chamar4Vezes ('male', 1)
-  } return chamar4Vezes(false, 1)
+    } return chamar4Vezes ('male', 1);
+  } return chamar4Vezes(false, 1);
 }
 semNada();
 function getAnimalMap(options) {
