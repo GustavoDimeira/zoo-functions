@@ -57,34 +57,28 @@ const chamar4Vezes = (sex, sorted) => {
   const SW2 = comIncludNames(SW, sex, sorted);
   return { NE: NE2, SE: SE2, SW: SW2, NW: NW2 };
 };
-const true1 = (options) => {
-  if (options.includeNames === true && options.sex === undefined) {
-    if (options.sorted === true) {
-      return chamar4Vezes(false, 1);
-    } return chamar4Vezes();
-  }
+const semSex = (options) => {
+  if (options.sorted === true) {
+    return chamar4Vezes(false, 1);
+  } return chamar4Vezes();
 };
-const true2 = (options) => {
-  if (options.sex === 'female') {
-    if (options.sorted === undefined) {
-      return chamar4Vezes('female');
-    } return chamar4Vezes('female', 1);
-  }
+const female = (options) => {
+  if (options.sorted === undefined) {
+    return chamar4Vezes('female');
+  } return chamar4Vezes('female', 1);
 };
-const true3 = (options) => {
-  if (options.sex === 'male') {
-    if (options.sorted === undefined) {
-      return chamar4Vezes('male');
-    } return chamar4Vezes('male', 1);
-  } return chamar4Vezes(false, 1);
+const male = (options) => {
+  if (options.sorted === undefined) {
+    return chamar4Vezes('male');
+  } return chamar4Vezes('male', 1);
 };
 const comIncludNamesTrue = (options) => {
-  if (true1(options) !== undefined) {
-    return true1(options);
-  } if (true2(options) !== undefined) {
-    return true2(options);
-  } if (true3(options) !== undefined) {
-    return true3(options);
+  if (options.includeNames === true && options.sex === undefined) {
+    return semSex(options);
+  } if (options.sex === 'female') {
+    return female(options);
+  } if (options.sex === 'male') {
+    return male(options);
   }
 };
 semNada();
