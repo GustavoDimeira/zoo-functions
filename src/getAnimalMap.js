@@ -1,6 +1,5 @@
 const data = require('../data/zoo_data');
 
-let a;
 const NE = [];
 const NW = [];
 const SE = [];
@@ -87,10 +86,6 @@ function getAnimalMap(options) {
     const map = { NE, NW, SE, SW };
     return map;
   } return comIncludNamesTrue(options);
-}
-
-if (a === 37) {
-  console.log(a);
 }
 
 module.exports = getAnimalMap;
